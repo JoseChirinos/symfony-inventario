@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block menu %}
+  <a class="nav-link active" href="{{ path('categorias') }}">Categorias</a>
+  <a class="nav-link" href="{{ path('productos') }}">Productos</a>
+{% endblock %}
+
+
+{% block body %}
+  <div class="table">
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+        <td>
+          Nombre
+        </td>
+        <td>
+          Descripcion
+        </td>
+        <td>
+          Opciones
+        </td>
+      </tr>
+      {% for categoria in categorias %}
+        <tr>
+          <td>
+            <a class="btn btn-success" href="{{ path('listarproductos_categoria',{ id: categoria.id }) }}">{{ categoria.id }}</a>
+          </td>
+          <td>
+            {{ categoria.nombre }}
+          </td>
+          <td>
+            {{ categoria.descripcion }}
+          </td>
+          <td>
+            <a class="btn btn-success" href="{{ path('editar_categoria',{ id: categoria.id }) }}">Editar</a>
+            <a class="btn btn-success" href="{{ path('eliminar_categoria',{ id: categoria.id }) }}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

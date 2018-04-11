@@ -1,0 +1,60 @@
+{% extends 'layout.html.twig' %}
+{% block menu %}
+  <a class="nav-link" href="{{ path('categorias') }}">Categorias</a>
+  <a class="nav-link active" href="{{ path('productos') }}">Productos</a>
+{% endblock %}
+{% block body %}
+  <div class="table">
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+        <td>
+          Nombre
+        </td>
+        <td>
+          Descripcion
+        </td>
+        <td>
+          Precio
+        </td>
+        <td>
+          Cantidad
+        </td>
+        <td>
+          Categoria
+        </td>
+        <td>
+          Opciones
+        </td>
+      </tr>
+      {% for producto in productos %}
+        <tr>
+          <td>
+            {{ producto.id }}
+          </td>
+          <td>
+            {{ producto.nombre }}
+          </td>
+          <td>
+            {{ producto.descripcion }}
+          </td>
+          <td>
+            {{ producto.precio }}
+          </td>
+          <td>
+            {{ producto.cantidad }}
+          </td>
+          <td>
+            {{ producto.categoria.nombre }}
+          </td>
+          <td>
+            <a class="btn btn-success" href="{{ path('editar_producto',{ id: producto.id }) }}">Editar</a>
+            <a class="btn btn-success" href="{{ path('eliminar_producto',{ id: producto.id }) }}">Eliminar</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

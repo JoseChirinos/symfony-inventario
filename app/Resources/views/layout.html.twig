@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      {% block titulo %}
+        Sistema de Inventarios
+      {% endblock %}
+    </title>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+    {% endblock %}
+    <style>
+      body{
+        margin:0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav nav-pills">
+      {% block menu %}
+        <a class="nav-link" href="{{ path('categorias') }}">Categorias</a>
+        <a class="nav-link" href="{{ path('productos') }}">Productos</a>
+      {% endblock %}
+    </nav>
+    {% block body %}
+      Estas en el body
+    {% endblock %}
+
+    {% block scripts %}
+            <script type="text/javascript" src="{{ asset('assets/js/jquery-3.2.1.slim.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/js/popper.min.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        {{ form_start(formulario) }}
+        {{ form_widget(formulario) }}
+        {{ form_end(formulario) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}
